@@ -1,7 +1,7 @@
 import click
 from stacklog import stacklog
 
-from bricks import __version__ as version
+from kada import __version__ as version
 
 @click.group()
 @click.version_option(version)
@@ -16,16 +16,11 @@ def cli(verbose, quiet):
     pass
 
 
-@click.command()
-@stacklog(click.echo, 'Generating new bricks project')
+@cli.command()
+@stacklog(click.echo, 'Generating new KADA project')
 def create():
     # create a project
-    import bricks.templating
-    bricks.templating.render_project_template()
+    import kada.templating
+    kada.templating.render_project_template()
 
 
-cli.add_command(create)
-
-
-if __name__ == '__main__':
-    cli()

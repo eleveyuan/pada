@@ -4,8 +4,8 @@ import funcy
 import pytest
 from click.testing import CliRunner
 
-import bricks
-from bricks.cli import cli as _cli
+import kada
+from kada.cli import cli as _cli
 
 
 @pytest.fixture
@@ -17,13 +17,13 @@ def cli():
 def test_cli_version(cli):
     result = cli('--version')
     assert result.exit_code == 0
-    assert bricks.__version__ in result.output
+    assert kada.__version__ in result.output
 
 
-@patch('ballet.templating.render_project_template')
+@patch('kada.templating.render_project_template')
 def test_create(mock_render, cli):
     cmd = 'create'
     result = cli(cmd)
 
-    assert 'Generating new bricks project' in result.output
+    assert 'Generating new KADA project' in result.output
 

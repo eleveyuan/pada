@@ -1,4 +1,4 @@
-# bricks
+# kada
 
 a ligthweight feature manage
 
@@ -17,10 +17,10 @@ M-V-C
 
 声明**feature url**， 然后启动**assemble**寻找**feature definition**组装成**pipeline**
 
-## bricks 框架目录结构
+## kada 框架目录结构
 
 
-## bricks 命令行工具生成如下目录结构
+## kada 命令行工具生成如下目录结构
 
 ```
 project
