@@ -1,5 +1,7 @@
 # kada
 
+kada is an onomatopoeia, like the sound we make when building blocks.
+
 a ligthweight feature manage
 
 1. load_data: load data
@@ -8,6 +10,8 @@ a ligthweight feature manage
 4. assemble: construct
 5. validation: validate feature set after assemble
 6. pipeline: use pipeline to train/test 
+
+![](kada.png)
 
 
 D-F-P
@@ -37,3 +41,6 @@ project
 └─url.py 
        
 ```
+
+## tutorial
+
