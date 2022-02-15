@@ -25,14 +25,15 @@ M-V-C
 ```
 project
 ├─definition
-│      definition1.py
+│      feature_definition.py
 │
 ├─eda
-│      eda.ipynb
+│      readme.md
 │
 ├─load
 │  │  load_data.py
 │  │
 │  └─data
-└─url.py        
+└─url.py 
+       
 ```

@@ -25,5 +25,7 @@ def test_create(mock_render, cli):
     cmd = 'create'
     result = cli(cmd)
 
+    mock_render.assert_called_once()
+
     assert 'Generating new KADA project' in result.output
 
