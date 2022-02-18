@@ -2,7 +2,7 @@
 
 kada is an onomatopoeia, like the sound we make when building blocks.
 
-a ligthweight feature manage
+a ligthweight feature manage framework
 
 1. load_data: load data
 2. eda process: Exploratory data analysis

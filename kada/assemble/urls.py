@@ -1,8 +1,6 @@
-from functools import partial
-from importlib import import_module
-import inspect, gc
+import inspect
 
-from kada.feature import BaseFeature
+from kada.features.feature import BaseFeature
 
 
 def url(route, feats, name=None):
