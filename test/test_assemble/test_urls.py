@@ -19,7 +19,7 @@ def test_url():
     for feat in feats_list:
         assert isinstance(feat, BaseFeature)
 
-    feats_list = url(feats, 'feat_.*', name='feats')
+    feats_list = url(feats, 'feats_.*', name='feats')
     assert len(feats_list) > 0
     for feat in feats_list:
         assert isinstance(feat, BaseFeature)

@@ -27,7 +27,7 @@ def url(feats, route, name=None):
             if isinstance(feat_def, BaseFeature) and re.match(pattern, attr):
                 feats_list.append(feat_def)
                 attrs.append(attr)
-        _print_matched(attrs, name)
+        # _print_matched(attrs, name)
         logger.debug(f"matched feats `{', '.join(attrs)}` in module {feats.__name__}")
         return feats_list
     else:
