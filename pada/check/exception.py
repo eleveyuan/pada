@@ -50,3 +50,8 @@ class FeatureCollectionError(PadaError):
 class NoFeaturesCollectedError(FeatureCollectionError):
     """Expected to collect some features but did not find any"""
     pass
+
+
+class UnsuccessfulInputConversionError(PadaError):
+    """Input-type conversion for execution within pipeline was unsuccessful"""
+    pass

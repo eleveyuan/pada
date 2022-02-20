@@ -5,7 +5,7 @@ from typing import Optional
 
 from pada.features.feature import BaseFeature
 from pada.utils.log import logger
-from pada.checks.exception import CheckModuleError
+from pada.check.exception import CheckModuleError
 
 
 def _convert_route(route: str):

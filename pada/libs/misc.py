@@ -9,7 +9,7 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn.utils.validation import check_is_fitted
 
 from pada.libs.base import BaseTransformer, ConditionalTransformer
-from pada.checks import get_arr_desc
+from pada.check import get_arr_desc
 from pada.utils.state import OneOrMore
 
 __all__ = (

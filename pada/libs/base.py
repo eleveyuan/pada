@@ -13,8 +13,8 @@ from sklearn_pandas import __version__ as sklearn_pandas_version
 import pada.features.transformer  # avoid circular import
 from pada.utils.state import OneOrMore, TransformerLike
 
-from pada.checks.exception import PadaError
-from pada.checks import get_arr_desc
+from pada.check.exception import PadaError
+from pada.utils import get_arr_desc
 
 __all__ = (
     'BaseTransformer',

@@ -2,7 +2,7 @@ from inspect import signature
 
 from pada.libs import BaseTransformer
 from pada.utils.state import OneOrMore
-from pada.checks.exception import CheckTransformerDefError
+from pada.check.exception import CheckTransformerDefError
 
 
 def check_route(route: str):
