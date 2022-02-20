@@ -1,7 +1,7 @@
 import click
 from stacklog import stacklog
 
-from kada import __version__ as version
+from pada import __version__ as version
 
 @click.group()
 @click.version_option(version)
@@ -17,10 +17,10 @@ def cli(verbose, quiet):
 
 
 @cli.command()
-@stacklog(click.echo, 'Generating new KADA project')
+@stacklog(click.echo, 'Generating new PADA project')
 def create():
     # create a project
-    import kada.templating
-    kada.templating.render_project_template()
+    import pada.templating
+    pada.templating.render_project_template()
 
 

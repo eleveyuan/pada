@@ -1,6 +1,6 @@
-# kada
+# pada
 
-kada is an onomatopoeia, like the sound we make when building blocks.
+pada is an onomatopoeia, like the sound we make when building blocks.
 
 a ligthweight feature manage framework
 

@@ -21,6 +21,7 @@ class BasePattern():
         self._name = name
         self.converters = _route_to_regex(str(route))[1]
 
+
 class RePattern():
     def __init__(self, route):
         self._route = route

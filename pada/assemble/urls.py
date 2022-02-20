@@ -2,8 +2,8 @@ import inspect
 import re
 from time import ctime
 
-from kada.features.feature import BaseFeature
-from kada.utils.log import logger
+from pada.features.feature import BaseFeature
+from pada.utils.log import logger
 
 
 def _convert_route(route):

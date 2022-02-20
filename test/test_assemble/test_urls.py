@@ -2,8 +2,8 @@ import pytest
 import inspect
 
 import feats
-from kada.features.feature import BaseFeature
-from kada.assemble.urls import url
+from pada.features.feature import BaseFeature
+from pada.assemble.urls import url
 
 # pytest.main(["-m", "add", "-s"])
 

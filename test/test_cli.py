@@ -4,8 +4,8 @@ import funcy
 import pytest
 from click.testing import CliRunner
 
-import kada
-from kada.cli import cli as _cli
+import pada
+from pada.cli import cli as _cli
 
 
 @pytest.fixture
@@ -17,15 +17,15 @@ def cli():
 def test_cli_version(cli):
     result = cli('--version')
     assert result.exit_code == 0
-    assert kada.__version__ in result.output
+    assert pada.__version__ in result.output
 
 
-@patch('kada.templating.render_project_template')
+@patch('pada.templating.render_project_template')
 def test_create(mock_render, cli):
     cmd = 'create'
     result = cli(cmd)
 
     mock_render.assert_called_once()
 
-    assert 'Generating new KADA project' in result.output
+    assert 'Generating new PADA project' in result.output
 

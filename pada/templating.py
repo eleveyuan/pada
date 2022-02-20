@@ -4,7 +4,7 @@ from typing import List, Optional, Tuple
 from cookiecutter.main import cookiecutter as _cookiecutter
 import funcy as fy
 
-from kada.compat import PathLike, Pathy
+from pada.compat import PathLike, Pathy
 
 
 TEMPLATES_PATH = pathlib.Path(__file__).resolve().parent.joinpath('templates')
