@@ -1,7 +1,12 @@
+from typing import (
+    Callable, Collection, List, NamedTuple, Optional, Sequence, Tuple, Type,
+    Union, cast,)
+
 from sklearn.preprocessing import FunctionTransformer
 
 from pada.libs import BaseTransformer, IdentityTransformer, SubsetTransformer
 from pada.utils.state import OneOrMore, TransformerLike
+
 
 def desugar_transformer(
     transformer: TransformerLike,
