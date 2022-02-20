@@ -1,10 +1,11 @@
 import pathlib
-from typing import List, Optional, Tuple
+from typing import Optional
 
 from cookiecutter.main import cookiecutter as _cookiecutter
 import funcy as fy
 
-from pada.compat import PathLike, Pathy
+from pada.utils.compat import PathLike
+from pada.utils.state import Pathy
 
 
 TEMPLATES_PATH = pathlib.Path(__file__).resolve().parent.joinpath('templates')

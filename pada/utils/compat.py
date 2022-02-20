@@ -13,4 +13,4 @@ try:
 except ImportError:
     from funcy import nullcontext
 
-Pathy = Union[str, PathLike]
+
