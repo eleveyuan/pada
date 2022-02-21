@@ -28,7 +28,7 @@ class CheckRegexError(Exception):
     pass
 
 
-class CheckInputError(Exception):
+class ColumnsError(Exception):
     """input column error for check"""
     pass
 

@@ -175,7 +175,7 @@ def dont_log_nonnegative(call: Call, logger: Logger = logger):
 
 
 # re-export cookiecutter work_in
-work_in = cookiecutter.utils.work_in
+# work_in = cookiecutter.utils.work_in
 
 
 def skipna(a: np.ndarray, b: np.ndarray, *c: np.ndarray, how: str = 'left'):
