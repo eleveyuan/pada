@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from pada.libs.base import *
 from pada.libs.misc import *
 from pada.libs.missing import *

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import Callable
 
 import funcy
@@ -9,7 +10,7 @@ from sklearn.preprocessing import FunctionTransformer
 from sklearn.utils.validation import check_is_fitted
 
 from pada.libs.base import BaseTransformer, ConditionalTransformer
-from pada.check import get_arr_desc
+from pada.utils import get_arr_desc
 from pada.utils.state import OneOrMore
 
 __all__ = (

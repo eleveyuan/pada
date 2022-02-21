@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from inspect import signature
 
 from pada.libs import BaseTransformer

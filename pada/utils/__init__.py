@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import warnings
 from contextlib import redirect_stderr, redirect_stdout, suppress
 from copy import deepcopy

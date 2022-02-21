@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import Callable, List, TypeVar, Union
 
 from pada.utils.compat import PathLike

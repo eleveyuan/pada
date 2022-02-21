@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 from typing import List, Optional, Tuple, Union
 

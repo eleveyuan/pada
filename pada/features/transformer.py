@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import (
     Callable, Collection, List, NamedTuple, Optional, Sequence, Tuple, Type,
     Union, cast,)
