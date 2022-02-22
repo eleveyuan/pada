@@ -53,8 +53,3 @@ class Assemble(FeatureEngineerVisitor):
             print('Assemble FeatureGet')
         if isinstance(obj, FeatureEngineerPart):
             print('Assemble FeatureStack')
-
-
-
-pipe = Pipe()
-pipe.accept(Assemble())
