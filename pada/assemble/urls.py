@@ -9,11 +9,6 @@ from pada.utils.log import logger
 from pada.check.exception import CheckModuleError
 
 
-class UrlWrapper:
-    def __init__(self):
-        pass
-
-
 def _convert_route(route: str):
     if route == '':
         return re.compile('^.*$')

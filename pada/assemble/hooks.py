@@ -9,3 +9,9 @@ class Hooker:
         self._header = data.columns
         self._data_caller = None
 
+    def register_feat_parse(self):
+        return self
+
+    def register_feat_valid(self):
+        # TODO
+        return self

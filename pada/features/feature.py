@@ -88,9 +88,9 @@ class BaseFeature:
 
     def as_feature_engineering_pipeline(
         self
-    ) -> ballet.pipeline.FeatureEngineeringPipeline:
+    ) -> pada.features.pipeline.FeatureEngineeringPipeline:
         """Return standalone FeatureEngineeringPipeline with this feature"""
-        return ballet.pipeline.FeatureEngineeringPipeline(self)
+        return pada.features.pipeline.FeatureEngineeringPipeline(self)
 
     @property
     def author(self) -> Optional[str]:

@@ -87,7 +87,7 @@ def make_engineer_features(
     encoder: BaseTransformer,
     load_data: Callable[..., Tuple[pd.DataFrame, pd.DataFrame]],
 ) -> Callable[[pd.DataFrame, pd.DataFrame], EngineerFeaturesResult]:
-    features = pipeline.ballet_features
+    features = pipeline.pada_features
 
     @stacklog(logger.info, 'Building features and target')
     def engineer_features(
