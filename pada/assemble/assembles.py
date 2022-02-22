@@ -19,7 +19,6 @@ _is_circle = False  # 是否存在特征的循环依赖
 _g = []
 
 
-
 def _stack_check(feats: OneOrMore[str]):
     _input = getattr(feats, '_input')
     _output = getattr(feats, '_output')
