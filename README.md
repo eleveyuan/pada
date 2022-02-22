@@ -11,7 +11,7 @@ a ligthweight feature manage framework
 5. validation: validate feature set after assemble
 6. pipeline: use pipeline to train/test 
 
-![](kada.png)
+![](pada.png)
 
 
 D-F-P
