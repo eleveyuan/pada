@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __all__ = []
 try:
     from feature_engine.creation import MathematicalCombination

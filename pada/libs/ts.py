@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import Iterable
 
 from sklearn.pipeline import FeatureUnion

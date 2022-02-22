@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __all__ = []
 try:
     from skits.feature_extraction import AutoregressiveTransformer
