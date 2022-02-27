@@ -5,7 +5,7 @@ from importlib import import_module
 from time import ctime
 from typing import Optional
 
-import pada.feature
+import pada.feature.features
 from pada.feature.datasets import Data
 # from pada.feature.features import BaseFeature, FeaturesStack
 from pada.utils.log import logger
@@ -35,8 +35,10 @@ def _urls(pattern=settings.URLS_CONF):
             for item in _attr:
                 if isinstance(item, list):
                     for _feature in item:
-                        _input = getattr(item, 'input')
-                        _output = getattr(item, 'output', None)
+                        _input = getattr(_feature, 'input')
+                        if not isinstance(_input, list):
+                            _input = [_input, ]
+                        _output = getattr(_feature, 'output', None)
                         features_stack.stack(_feature, _input, _output)
                 else:
                     _input = getattr(item, 'input')
@@ -50,7 +52,7 @@ def _urls(pattern=settings.URLS_CONF):
 
 
 def _convert_route(route: str):
-    if route == '':
+    if route == '' or route == '*':
         return re.compile('^.*$')
     return re.compile('^' + route + '$')
 
@@ -61,7 +63,7 @@ def _print_matched(attrs, name: Optional[str]):
     print(f"{ctime()}: matched feats `{', '.join(attrs)}`")
 
 
-def url(feats: pada.feature.features.BaseFeature, route: str):
+def url(feats, route: str):
     feats_list, attrs = [], []
     if inspect.ismodule(feats):
         pattern = _convert_route(route)

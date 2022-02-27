@@ -1,4 +1,4 @@
-def load_data():
+def data():
     import pandas as pd
     return pd.DataFrame({
         'pet':      ['cat', 'dog', 'dog', 'fish', 'cat', 'dog', 'cat', 'fish'],

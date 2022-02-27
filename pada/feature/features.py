@@ -157,34 +157,36 @@ class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
         stacking = []
         stacked_cols = obj._cols
         stacked = []
-        i = 0
-        while True:
-            temp_feat = self._features.pop()
-            print(temp_feat)
-            temp_pipe = temp_feat['feature'].pipeline
-            try:
-                transformed = temp_pipe.fit_transform(obj._data)
-                output = temp_pipe.transformed_names_
 
-                if all(el in temp_feat['input'] for el in output):
-                    output = [_name + '_ed' for _name in output]
+        for i in range(len(self._features)):
+            """using idea of insertion sort """
+            pre_idx = i - 1
+            cur = self._features[i]
+            temp_pipe = cur['feature'].pipeline
+            flag = True
+            while flag:
+                try:
+                    transformed = temp_pipe.fit_transform(obj._data)
+                    output = temp_pipe.transformed_names_
 
-                # TODO naive implement, should be more compatible
-                if temp_feat['output'] is None:
-                    temp_feat['output'] = output
-                else:
-                    temp_feat['output'] = output
+                    if all(el in cur['input'] for el in output):
+                        output = [_name + '_ed' for _name in output]
 
-                obj._data[output] = transformed
+                    # TODO naive implement, should be more compatible
+                    if cur['output'] is None:
+                        cur['output'] = output
+                    else:
+                        cur['output'] = output
 
-                print(obj._data)
+                    obj._data[output] = transformed
+                    flag = False
+                except Exception as e:
+                    self._features[pre_idx + 1] = self._features[pre_idx]
+                    pre_idx -= 1
+            self._features[pre_idx + 1] = cur
 
-                # print(stacked_cols)
-                stacked.append(temp_feat)
-            except Exception as e:
-                # raise Exception()
-                stacking.append(temp_feat)
+        print(self._features)
+        print(obj._data)
 
-            if len(self._features) < 1:
-                break
+
 

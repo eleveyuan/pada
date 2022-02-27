@@ -22,11 +22,22 @@ def check_transformer(transformer: BaseTransformer):
     ):
         raise CheckTransformerDefError('Transformer object missing required attribute')
 
+    # https://github.com/ballet/ballet/issues/92#issue-1148839747
     sig_fit = signature(transformer.fit)
-    if '(X, y=None' not in str(sig_fit):
+    if '(X, y=None' not in str(sig_fit) and '(y' not in str(sig_fit):
         raise CheckTransformerDefError(f'Invalid signature for transformer.fit: {sig_fit}')
 
     sig_transform = signature(transformer.transform)
-    if '(X' not in str(sig_transform):
+    if '(X' not in str(sig_transform) and '(y' not in str(sig_fit):
         raise CheckTransformerDefError(
             f'Invalid signature for transformer.transform: {sig_transform}')
+
+
+class CrossLinkChecker:
+    def __init__(self):
+        pass
+
+    @property
+    def is_circle(self):
+        """relationship between featueres include a circle or not"""
+        return False

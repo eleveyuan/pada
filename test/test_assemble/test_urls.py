@@ -1,9 +1,9 @@
 import pytest
 import inspect
 
-import feats
-from pada.features.feature import BaseFeature
-from pada.assemble.urls import url
+import feats_def
+from pada.feature.features import BaseFeature
+from pada.assemble.locates import url
 
 # pytest.main(["-m", "add", "-s"])
 

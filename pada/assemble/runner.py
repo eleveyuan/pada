@@ -1,20 +1,25 @@
+from typing import Optional
+
 import pandas as pd
 
-from pada.assemble.visitor import (Pipe, Assemble)
-
-data = pd.DataFrame({'pet':      ['cat', 'dog', 'dog', 'fish', 'cat', 'dog', 'cat', 'fish'],
-                     'children': [4., 6, 3, 3, 2, 3, 5, 4],
-                     'salary':   [90., 24, 44, 27, 32, 59, 36, 27]})
+from pada.feature.features import BaseFeature
+from pada.assemble.hooks import Hooker
+from pada.assemble.locates import _urls, _data
 
 
-def run(data: pd.DataFrame):
-    pipe = Pipe(data)
-    pipe.accept(Assemble())
+def run():
+    hook = Hooker()
+    hook.register_data(_data) \
+        .register_features(_urls)
+
+    hook.handle()
 
 
-def test(featuere: str):
+def test(feature: Optional[BaseFeature]):
     """test function: test feature or features in module"""
-    pass
+    hook = Hooker()
+    hook.register_data(_data) \
+        .register_features(_urls)
 
 
-run(data)
+

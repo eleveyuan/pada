@@ -11,7 +11,7 @@ from sklearn.utils.validation import check_is_fitted
 from sklearn_pandas import DataFrameMapper
 from sklearn_pandas import __version__ as sklearn_pandas_version
 
-import pada.features.transformer  # avoid circular import
+import pada.feature.transformer  # avoid circular import
 from pada.utils.state import OneOrMore, TransformerLike
 
 from pada.check.exception import PadaError
@@ -350,7 +350,7 @@ class SubsetTransformer(DataFrameMapper):
         self.alias = alias
         super().__init__(
             [(input,
-              pada.features.transformer.desugar_transformer(transformer),
+              pada.feature.transformer.desugar_transformer(transformer),
               {'alias': alias})],
             default=None,
             input_df=True,
