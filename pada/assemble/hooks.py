@@ -32,3 +32,5 @@ class Hooker:
     def handle(self):
         _data_obj = self._data_caller(settings.DATA_CONF)
         _features_obj = self._features_caller(settings.URLS_CONF)
+
+        _data_obj.accept(_features_obj)
