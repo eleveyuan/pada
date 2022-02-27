@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import collections
 from inspect import signature
 from typing import Optional, Tuple
 
@@ -8,6 +9,7 @@ from slugify import slugify
 import pada.features.pipeline
 from pada.features.transformer import RobustTransformer, make_robust_transformer
 from pada.utils.state import (FeatureInputType, FeatureTransformerType, OneOrMore,)
+from pada.assemble.visitor import FeatureEngineerVisitor
 
 
 class BaseFeature:
@@ -131,3 +133,28 @@ class BaseFeature:
     def fit_transform(self, X, y=None):
         """Fit feature.pipeline and then transform data"""
         return self.fit(X, y=y).transform(X)
+
+
+class FeaturesStack(FeatureEngineerVisitor):
+    def __init__(self):
+        self._features = []
+        self._g = {}
+        self._stack = []
+
+    def stack(self, feature: BaseFeature, input: OneOrMore[str], output: Optional[OneOrMore[str]]):
+        self._features.append({
+            'feature': feature,
+            'input': input,  # must be true feature name
+            'output': output  # not truely output feature name, maybe a alias
+        })
+        self.graph(feature.input)
+
+    def graph(self, featuer):
+        pass
+
+    def visit(self, obj):
+        stacking = []
+        stacked = []
+        while True:
+            pass
+
