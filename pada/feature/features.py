@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import collections
+from collections import defaultdict
 from inspect import signature
 from typing import Optional, Tuple
 
@@ -139,7 +139,8 @@ class BaseFeature:
 class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
     def __init__(self):
         self._features = []
-        self._g = {}
+        self._g = defaultdict(list)
+        self._inv_g = defaultdict(list)
         self._stack = []
 
     def stack(self, feature: BaseFeature, input: OneOrMore[str], output: Optional[OneOrMore[str]]):
@@ -148,9 +149,9 @@ class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
             'input': input,  # must be true feature name
             'output': output  # not truely output feature name, maybe a alias
         })
-        self.graph(feature.input)
 
     def _build(self, obj):
+        collected = obj._data.columns.values
         builded_idx = 0
         for i in range(len(self._features)):
             cur = self._features[i]
@@ -178,14 +179,26 @@ class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
             except Exception:
                 pass
 
-        if builded_idx > len(self._features):
-            pass
+        if builded_idx >= len(self._features):
+            self._graph()
         else:
             raise CheckStackFeatureorderError(
                 f'dependencies column(s) {self._features[builded_idx]["input"]} not exist')
 
-    def _graph(self, feature):
-        pass
+    def _graph(self):
+        feats_num = len(self._features)
+
+        for i in range(feats_num):
+            self._g[i] = []
+            for j in range(feats_num):
+                if j != i and all(el in self._features[i]['output'] for el in self._features[j]['input']):
+                    self._g[i].append(j)
+        # inverse graph
+        for k in self._g.keys():
+            self._inv_g[k] = []
+        for k, v in self._g.items():
+            for el in v:
+                self._inv_g[el].append(k)
 
     def visit(self, obj):
         self._build(obj)
