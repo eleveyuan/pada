@@ -8,7 +8,7 @@ from slugify import slugify
 
 import pada.feature.pipeline
 import pada.assemble.watch
-from pada.check.exception import CheckTransformerDefError
+from pada.check.exception import CheckStackFeatureorderError
 from pada.feature.transformer import RobustTransformer, make_robust_transformer
 from pada.utils.state import (FeatureInputType, FeatureTransformerType, OneOrMore,)
 
@@ -150,43 +150,45 @@ class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
         })
         self.graph(feature.input)
 
-    def graph(self, feature):
+    def _build(self, obj):
+        builded_idx = 0
+        for i in range(len(self._features)):
+            cur = self._features[i]
+            temp_pipe = cur['feature'].pipeline
+            try:
+                transformed = temp_pipe.fit_transform(obj._data)
+                output = temp_pipe.transformed_names_
+
+                if all(el in cur['input'] for el in output):
+                    output = [_name + '_ed' for _name in output]
+
+                # TODO naive implement, should be more compatible
+                if cur['output'] is None:
+                    cur['output'] = output
+                else:
+                    cur['output'] = output
+
+                obj._data[output] = transformed
+
+                temp = self._features[i]
+                self._features[i] = self._features[builded_idx]
+                self._features[builded_idx] = temp
+                builded_idx += 1
+
+            except Exception:
+                pass
+
+        if builded_idx > len(self._features):
+            pass
+        else:
+            raise CheckStackFeatureorderError(
+                f'dependencies column(s) {self._features[builded_idx]["input"]} not exist')
+
+    def _graph(self, feature):
         pass
 
     def visit(self, obj):
-        stacking = []
-        stacked_cols = obj._cols
-        stacked = []
-
-        for i in range(len(self._features)):
-            """using idea of insertion sort """
-            pre_idx = i - 1
-            cur = self._features[i]
-            temp_pipe = cur['feature'].pipeline
-            flag = True
-            while flag:
-                try:
-                    transformed = temp_pipe.fit_transform(obj._data)
-                    output = temp_pipe.transformed_names_
-
-                    if all(el in cur['input'] for el in output):
-                        output = [_name + '_ed' for _name in output]
-
-                    # TODO naive implement, should be more compatible
-                    if cur['output'] is None:
-                        cur['output'] = output
-                    else:
-                        cur['output'] = output
-
-                    obj._data[output] = transformed
-                    flag = False
-                except Exception as e:
-                    self._features[pre_idx + 1] = self._features[pre_idx]
-                    pre_idx -= 1
-            self._features[pre_idx + 1] = cur
-
-        print(self._features)
-        print(obj._data)
+        self._build(obj)
 
 
 
