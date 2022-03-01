@@ -41,16 +41,29 @@ test_requirements = [
 ]
 
 setup(
+    author="Eleve Yuan",
+    author_email='eleveyuane@gmail.com',
     description='a ligthweight feature manage framework',
     install_requires=requirements,
     license='MIT license',
     keywords='pada',
     name='pada',
     python_requires='>=3.7.0',
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+    ],
     url='https://github.com/eleveyuan/pada',
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/markdown',
     version='0.1.0',
     zip_safe=False,
-    packages=find_packages(include=['pada', 'pada.*'])
+    packages=find_packages(include=['pada', 'pada.*']),
+    extras_require={
+        **extras,
+    }
 )
