@@ -1,5 +1,7 @@
 # pada
 
+![GitHub](https://img.shields.io/github/license/eleveyuan/pada) ![python3](https://img.shields.io/badge/langs-python3-blue)
+
 pada is an onomatopoeia, like the sound we make when building blocks.
 
 a ligthweight feature manage framework
