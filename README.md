@@ -20,10 +20,13 @@ project
 |---url.py    
 ```
 
-## tutorial
+## base introduce
 
 ### load_data.py
 define a function named *data()*, return your data which is a pd.DataFrame
+
+### definition
+you should define your feature in this directory
 
 ### url.py
 find your feature definition by *url()* function
