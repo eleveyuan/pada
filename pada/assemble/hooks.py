@@ -34,3 +34,5 @@ class Hooker:
         _features_obj = self._features_caller(settings.URLS_CONF)
 
         _data_obj.accept(_features_obj)
+
+        return _data_obj

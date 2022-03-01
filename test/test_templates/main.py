@@ -1,3 +1,3 @@
 from pada.assemble.runner import run
 
-run()
+print(run())

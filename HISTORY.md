@@ -1,5 +1,5 @@
 # History
 
-## 0.0.1 (2022-02-27)
+## 0.1.0 (2022-03-01)
 
-* One of the ugly underlying core code
+* First release on PyPI

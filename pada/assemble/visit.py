@@ -22,6 +22,7 @@ class Data(FeatureEngineerPart):
         obj.visit(self)
 
 
+
 class DataGet(FeatureEngineerPart):
     def accept(self, obj: FeatureEngineerVisitor):
         print('DataGet')

@@ -7,7 +7,7 @@ from funcy import cached_property
 from slugify import slugify
 
 import pada.feature.pipeline
-import pada.assemble.watch
+import pada.assemble.visit
 from pada.check.exception import CheckStackFeatureorderError
 from pada.feature.transformer import RobustTransformer, make_robust_transformer
 from pada.utils.state import (FeatureInputType, FeatureTransformerType, OneOrMore,)
@@ -136,7 +136,7 @@ class BaseFeature:
         return self.fit(X, y=y).transform(X)
 
 
-class FeaturesStack(pada.assemble.watch.FeatureEngineerVisitor):
+class FeaturesStack(pada.assemble.visit.FeatureEngineerVisitor):
     def __init__(self):
         self._features = []
         self._g = defaultdict(list)

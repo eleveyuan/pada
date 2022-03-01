@@ -12,7 +12,7 @@ def run():
     hook.register_data(_data) \
         .register_features(_urls)
 
-    hook.handle()
+    return hook.handle()
 
 
 def test(feature: Optional[BaseFeature]):
