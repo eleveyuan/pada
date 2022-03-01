@@ -10,6 +10,17 @@ a ligthweight feature manage framework
 2. feature definition: metadata, input data, transform
 3. assemble: construct
 
+## download and install
+you can install by pip command
+``` python 
+pip install pada
+```
+or download source
+``` python
+python setup.py install
+```
+
+
 
 ## pada command line generates the project directory
 

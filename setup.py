@@ -16,9 +16,9 @@ requirements = [
     'Click >= 6.0',
     'funcy >= 1.14',
     'scikit_learn >= 0.20',
-    'sklearn_pandas ~= 1.0',
+    'sklearn_pandas >= 1.0',
     'stacklog',
-    'pandas ~= 1.0',
+    'pandas >= 1.0',
     'numpy',
 ]
 
