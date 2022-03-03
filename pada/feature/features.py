@@ -135,6 +135,9 @@ class BaseFeature:
         """Fit feature.pipeline and then transform data"""
         return self.fit(X, y=y).transform(X)
 
+    def __str__(self):
+        return 'BaseFeature({}, {})'.format(self.input, self.transformer)
+
 
 class FeaturesStack(pada.assemble.visit.FeatureEngineerVisitor):
     def __init__(self):
@@ -188,17 +191,44 @@ class FeaturesStack(pada.assemble.visit.FeatureEngineerVisitor):
     def _graph(self):
         feats_num = len(self._features)
 
+        # graph
         for i in range(feats_num):
             self._g[i] = []
             for j in range(feats_num):
                 if j != i and all(el in self._features[i]['output'] for el in self._features[j]['input']):
                     self._g[i].append(j)
+
         # inverse graph
         for k in self._g.keys():
             self._inv_g[k] = []
         for k, v in self._g.items():
             for el in v:
                 self._inv_g[el].append(k)
+
+    def get_tree(self, features):
+        """get dependence trees"""
+        if features is None:
+            return self._inv_g
+        if not isinstance(features, list):
+            features = [features,]
+
+        feats_idx = [self._features.index(feat) for feat in features]
+        g = defaultdict(list)
+        for idx in feats_idx:
+            g[idx] = self._inv_g[idx]
+        return g
+
+    def render_txt(self, g):
+        keys = g.keys()
+        chs = []
+        for key in keys:
+            chs.append(self.render_node(self._features[key]))
+            for ch in g[key]:
+                chs.append('    -' + self.render_node(self._features[ch]))
+        return '\n'.join(chs)
+
+    def render_node(self, node):
+        return '{}: {}=>{}'.format(node['feature'], node['input'], node['output'])
 
     def visit(self, obj):
         self._build(obj)

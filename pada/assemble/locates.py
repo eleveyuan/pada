@@ -7,10 +7,8 @@ from typing import Optional
 
 import pada.feature.features
 from pada.feature.datasets import Data
-# from pada.feature.features import BaseFeature, FeaturesStack
 from pada.utils.log import logger
-from pada.check.exception import PadaError
-from pada.check.exception import CheckModuleError
+from pada.check.exception import PadaError, CheckModuleError
 from pada.assemble import settings
 
 
