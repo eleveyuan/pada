@@ -10,6 +10,7 @@ a ligthweight feature manage framework
 2. feature definition: metadata, input data, transform
 3. assemble: construct
 
+
 ## download and install
 you can install by pip command
 ``` python 
@@ -47,3 +48,7 @@ find your feature definition by *url()* function
 ### main.py
 run your feature engeering by *run()* function
 
+
+# Credits
+
+* This library derives from and extends Ballet, a lightweight framework for collaborative, open-source feature engineering (https://github.com/ballet/ballet)
