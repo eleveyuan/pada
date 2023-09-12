@@ -2,6 +2,9 @@
 
 ![GitHub](https://img.shields.io/github/license/eleveyuan/pada) ![python3](https://img.shields.io/badge/langs-python3-blue)
 
+en | [cn](https://github.com/eleveyuan/pada/blob/master/README.zh.md)
+
+
 pada is an onomatopoeia, like the sound we make when building blocks.
 
 a ligthweight feature manage framework
