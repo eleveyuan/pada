@@ -42,7 +42,7 @@ test_requirements = [
 
 setup(
     author="Eleve Yuan",
-    author_email='eleveyuane@gmail.com',
+    author_email='eleveyuan@gmail.com',
     description='a ligthweight feature manage framework',
     install_requires=requirements,
     license='MIT license',
